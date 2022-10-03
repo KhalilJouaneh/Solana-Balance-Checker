@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     try {
       setAddress(address)
       const key = new Web3.PublicKey(address)
-      const connection = new Web3.Connection(Web3.clusterApiUrl('devnet'))
+      const connection = new Web3.Connection(Web3.clusterApiUrl('mainnet-beta'))
       connection.getBalance(key).then(balance => {
         setBalance(balance / Web3.LAMPORTS_PER_SOL)
       })
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
     <div className={styles.App}>
       <header className={styles.AppHeader}>
         <p>
-          Start Your Solana Journey
+          Solana Balance Checker
         </p>
         <AddressForm handler={addressSubmittedHandler} />
         <p>{`Address: ${address}`}</p>
